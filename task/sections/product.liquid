@@ -1,0 +1,740 @@
+<section>
+    <div>
+        <div class="product-container">
+            <div class="product-grid-container">
+                <div class="images-container">
+                    <div class="carousel">
+                        <div class="carousel-wrapper">
+                            <div class="carousel-item active">
+                                <img src="https://cdn.shopify.com/s/files/1/0885/5191/5867/files/freegift.png?v=1729174156" alt="Free Gift" loading="lazy">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://cdn.shopify.com/s/files/1/0885/5191/5867/files/winner.png?v=1729176794" alt="Clinically Proven Results" loading="lazy">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://cdn.shopify.com/s/files/1/0885/5191/5867/files/6weeks.png?v=1729176793" alt="Emma Willis Product" loading="lazy">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://cdn.shopify.com/s/files/1/0885/5191/5867/files/2years.png?v=1729176794" alt="100% Satisfaction" loading="lazy">
+                            </div>
+                        </div>
+                        <button class="carousel-btn prev">&#10094;</button>
+                        <button class="carousel-btn next">&#10095;</button>
+
+                        <div class="carousel-indicators">
+                            <span class="carousel-dot active"></span>
+                            <span class="carousel-dot"></span>
+                            <span class="carousel-dot"></span>
+                            <span class="carousel-dot"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Details Section -->
+                <div class="details-container">
+                    <h1>{{ product.title }}</h1>
+                     <div>
+                        <div class="product-price">
+                            <h2>from {{ product.price | money_with_currency }}</h2>
+                        </div>
+    
+                        <div class="section-container">
+                            <div class="rating">
+                                <div>
+                                    {% render 'icon-star' %}
+                                </div>
+                                <div>
+                                    {% render 'icon-star' %}
+                                </div>
+                                <div>
+                                    {% render 'icon-star' %}
+                                </div>
+                                <div>
+                                    {% render 'icon-star' %}
+                                </div>
+                                <div>
+                                    {% render 'icon-star' %}
+                                </div>
+                                <div>(48)</div>
+                            </div> 
+                        </div>
+                    </div>
+                    
+
+                    <p>{{ product.description }}</p>
+
+                    <div class="add-to-cart-form">
+                        <form action="/cart/add" method="post" enctype="multipart/form-data" class="AddToCartForm">
+                            <div class="product-size-selector">
+                                <label>Select purchase option</label>
+                                <div class="purchase-options">
+                                    {% for variant in product.variants %}
+                                        <div class="purchase-option">
+                                            {% if variant.id and variant.available != null %}
+                                                <input type="radio" id="variant_{{ variant.id }}" name="id" value="{{ variant.id }}">
+                                            {% else %}
+                                                <p>Variant data is missing or unavailable.</p>
+                                            {% endif %}
+                                            <label for="variant_{{ variant.id }}" class="option-label">
+                                                <div class="option-info">
+                                                    <span class="option-title">{{ variant.title }}</span>
+                                                    <span class="option-price">{{ variant.price | money_with_currency }}</span>
+                                                    {% if variant.available %}
+                                                        <p class="option-description">14 sachets every 2 weeks</p> <!-- Adjust based on your data -->
+                                                    {% else %}
+                                                        <p class="sold-out">Sold out</p>
+                                                    {% endif %}
+                                                </div>
+                                                {% if variant.metafields.gift %} <!-- Example condition for displaying the gift -->
+                                                    <div class="gift-badge">Free gift worth £55</div>
+                                                {% endif %}
+                                            </label>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <button type="submit" name="add" class="AddToCart material-button">Add to Cart</button>
+                        </form>
+                    </div>
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                            <h3>Why Subscribe?</h3>
+                            <span class="accordion-icon">+</span>
+                            </div>
+                            <div class="accordion-content">
+                            <p>This is the content for Why Subscribe?. It becomes visible when the accordion is active.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                            <h3>Clinically Proven Benefits</h3>
+                            <span class="accordion-icon">+</span>
+                            </div>
+                            <div class="accordion-content">
+                            <p>This is the content for Clinically Proven Benefits. It becomes visible when the accordion is active.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                            <h3>How To Take</h3>
+                            <span class="accordion-icon">+</span>
+                            </div>
+                            <div class="accordion-content">
+                            <p>This is the content for How To Take. It becomes visible when the accordion is active.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                            <h3>Ingredients & Nutrition</h3>
+                            <span class="accordion-icon">+</span>
+                            </div>
+                            <div class="accordion-content">
+                            <p>This is the content for Ingredients & Nutrition. It becomes visible when the accordion is active.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <div class="accordion-header">
+                            <h3>How Collagen Works</h3>
+                            <span class="accordion-icon">+</span>
+                            </div>
+                            <div class="accordion-content">
+                            <p>This is the content for How Collagen Works. It becomes visible when the accordion is active.</p>
+                            </div>
+                        </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="success-story-info-container">
+        <h1>{{ section.settings.successStoryTitle }}</h1>
+        <p>{{ section.settings.successStoryDescription }}</p>
+    </div>
+    <div class="success-story-img-container">
+        <div class="success-story-img">
+            <img src="https://cdn.shopify.com/s/files/1/0885/5191/5867/files/before-after-part2.png?v=1729197634" alt="">
+        </div>
+        <div class="success-story-img">
+            <img src="https://cdn.shopify.com/s/files/1/0885/5191/5867/files/before-after-part1.png?v=1729197634" alt="">
+        </div>
+    </div>
+</section>
+
+<style>
+
+/* product styles */
+.product-container {
+    padding: 2rem ;
+    position: relative;
+    top: 70px;
+}
+
+.product-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 80vh;
+    padding: 1% 10%;
+    margin-bottom: 3%;
+    text-align: start;
+}
+
+.images-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 1rem;
+    margin-right: 24px;
+}
+
+.image-item {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.image-item img {
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+}
+
+.details-container {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans', sans-serif;
+    background: #fff;
+    padding: 1rem;
+}
+
+.details-container div {
+}
+
+.details-container h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #21221E;
+}
+
+.details-container h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #21221E;
+}
+
+.details-container p{
+    margin: 0;
+}
+
+.vendor {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #21221E;
+}
+
+.product-size-selector {
+    min-width: 300px;
+}
+
+.product-size-selector select {
+    appearance: none;
+    width: 100%;
+    font-size: 1.15rem;
+    padding: 0.675em 6em 0.675em 1em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+    cursor: pointer;
+}
+
+.product-quantity-selector {
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.Quantity {
+    width: 100%;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    border: none;
+}
+
+.AddToCart {
+    width: 100%;
+    padding: 1rem;
+    background-color: #FCD33A; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 5% 0;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.AddToCart:hover {
+    background-color: #F9BB33; 
+}
+
+.additional-info {
+    margin-top: 2rem;
+}
+
+.accordion .accordion-item {
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 1rem 0 0 0;
+}
+
+.accordion-header {
+    font-size: 1.25rem;
+    color: #333;
+    cursor: pointer;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.accordion-content.active {
+    padding-top: 1rem;
+}
+
+.accordion-content p {
+    font-size: 1rem;
+    color: #666;
+}
+    /* star system */
+    .rating {
+        display: flex;
+        font-size: 1.2rem;
+        gap: 5px;
+    }
+
+    .star-icon {
+        width: 24px; 
+        height: 24px;
+    }
+
+    .product-price{
+        margin-top: 10px;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+    }
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+/** checkout selection */
+/* General Form Styling */
+.add-to-cart-form {
+    margin-top: 20px;
+}
+
+/* Container for Purchase Options */
+.purchase-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Individual Option Styling */
+.purchase-option {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid #eaeaea;
+    border-radius: 10px;
+    transition: border-color 0.3s;
+    background-color: #fff;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Style for the radio input to make it visible */
+.purchase-option input[type="radio"] {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* When the radio button is checked */
+.purchase-option input[type="radio"]:checked + .option-label {
+    border-color: #000;
+    background-color: #FFF8C5;
+}
+
+.purchase-option input[type="radio"]:checked + .option-label .gift-badge {
+    background-color: #AD8244;
+}
+
+/* Label Styling */
+.option-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.option-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.option-title {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.option-price {
+    font-weight: normal;
+    font-size: 1.2rem;
+    margin-top: 5px;
+}
+
+.option-description {
+    color: #777;
+    font-size: 0.875rem;
+}
+
+.sold-out {
+    color: red;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Badge Styling */
+.gift-badge {
+    background-color: #AD8244;
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.875rem;
+    border-radius: 20px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+/* Add to Cart Button */
+.AddToCart {
+    width: 100%;
+    padding: 15px;
+    background-color: #f7cd00;
+    color: #000;
+    font-size: 1.2rem;
+    text-align: center;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.AddToCart:hover {
+    background-color: #e3b900;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/** carousel **/
+.carousel {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100vh;
+}
+
+.carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #333;
+    z-index: 1;
+    padding: 0 10px;
+}
+
+.carousel-btn.prev {
+    left: 0;
+}
+
+.carousel-btn.next {
+    right: 0;
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.carousel-dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.carousel-dot.active {
+    background-color: #333;
+}
+
+
+
+
+
+
+/** accordian section **/
+.accordion {
+  border-top: 1px solid #e0e0e0;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 15px 0;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.accordion-header h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.accordion-icon {
+  background-color: #f7ec8b;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 15px;
+}
+
+.accordion-content p {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 500px; /* Ensure this value is large enough to hold the full content */
+}
+
+.accordion-item.active .accordion-icon {
+  transform: rotate(45deg);
+}
+
+/** before after section */
+.success-story-info-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 13%;
+}
+
+.success-story-info-container h1{
+    font-size: 2.25rem;
+    font-weight: 700;
+}
+
+.success-story-info-container p{
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+.success-story-img-container{
+    gap: 1%;
+    display: flex;
+    justify-content: space-around;
+    padding: 1% 8%;
+}
+
+.success-story-img-container img{
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 800px) {
+    .product-grid-container {
+        grid-template-columns: 1fr;
+    }
+    .images-container {
+        grid-template-columns: 1fr;
+    }
+    .image-container {
+        height: auto;
+    }
+    .card img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+    }
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    /* accordian */
+    const accordions = document.querySelectorAll('.accordion-item');
+
+    accordions.forEach((item) => {
+    const header = item.querySelector('.accordion-header');
+    header.addEventListener('click', function () {
+        const isActive = item.classList.contains('active');
+        accordions.forEach((i) => {
+        i.classList.remove('active');
+        i.querySelector('.accordion-content').style.maxHeight = null; // Collapse the content for inactive items
+        });
+
+        if (!isActive) {
+        item.classList.add('active');
+        const content = item.querySelector('.accordion-content');
+        content.style.maxHeight = content.scrollHeight + 'px'; // Expand the content for the active item
+        }
+    });
+    });
+
+    /** carasoul */
+    const slides = document.querySelectorAll('.carousel-item');
+    const dots = document.querySelectorAll('.carousel-dot');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        if (index >= slides.length) {
+            currentIndex = 0;
+        } else if (index < 0) {
+            currentIndex = slides.length - 1;
+        } else {
+            currentIndex = index;
+        }
+
+        slides.forEach((slide, i) => {
+            slide.style.transform = `translateX(-${currentIndex * 100}%)`;
+        });
+
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
+
+    document.querySelector('.prev').addEventListener('click', function() {
+        showSlide(currentIndex - 1);
+    });
+
+    document.querySelector('.next').addEventListener('click', function() {
+        showSlide(currentIndex + 1);
+    });
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', function() {
+            showSlide(i);
+        });
+    });
+});
+
+</script>
+
+
+{% schema %}
+{
+    "name": "product",
+    "settings": [
+            {
+                "type": "text",
+                "id": "successStoryTitle",
+                "label": "Success Story Title",
+                "default": "Absolute success stories"
+            },
+            {
+                "type": "text",
+                "id": "successStoryDescription",
+                "label": "Success Story Description",
+                "default": "Our customers frequently contact us to share with us the incredible results of their Absolute Collagen journey. From glowing skin, to glossier hair and gorgeous nails, check out a selection of Absolute Collagen before and after photos below."
+            }
+        ]
+}
+{% endschema %}

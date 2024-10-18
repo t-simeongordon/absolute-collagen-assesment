@@ -1,0 +1,259 @@
+<section class="home">
+  <div class="home-overview-container">
+    <h1>
+      {{ section.settings.main_title }}
+    </h1>
+    <p>
+      {{ section.settings.subtitle }}
+    </p>
+    <p>
+      {{ section.settings.description }}
+    </p>
+    <div class="home-subscribe-button">
+      <button>
+        Subscribe
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="home">
+  <div class="home-promotion-container">
+    <h1>{{ section.settings.promotion }}</h1>
+    <div class="home-promotion-items">
+      <div class="home-promotion-item">
+        <h2>
+          {{ section.settings.promotion-subject-title1 }}
+        </h2>
+        <p>
+          {{ section.settings.promotion-subject-descriptions1 }}
+        </p>
+      </div>
+      <div class="home-promotion-item">
+        <h2>
+          {{ section.settings.promotion-subject-title2 }}
+        </h2>
+        <p>
+          {{ section.settings.promotion-subject-descriptions2 }}
+        </p>
+      </div>
+      <div class="home-promotion-item">
+        <h2>
+          {{ section.settings.promotion-subject-title3 }}
+        </h2>
+        <p>
+          {{ section.settings.promotion-subject-descriptions3 }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home">
+  <div class="home-subcription-container">
+    <h1>{{ section.settings.promotion-title }}</h1>
+    <div class="home-subcription-items">
+      <div class="home-subcription-item-number">
+        <p>1</p>
+        <div class="home-subcription-item">
+          <h2>
+            {{ section.settings.promotion-subject-title1 }}
+          </h2>
+          <p>
+            {{ section.settings.promotion-subject-descriptions1 }}
+          </p>
+        </div>
+      </div>
+
+      <div class="home-subcription-item">
+        <h2>
+          {{ section.settings.promotion-subject-title2 }}
+        </h2>
+        <p>
+          {{ section.settings.promotion-subject-descriptions2 }}
+        </p>
+      </div>
+      <div class="home-subcription-item">
+        <h2>
+          {{ section.settings.promotion-subject-title3 }}
+        </h2>
+        <p>
+          {{ section.settings.promotion-subject-descriptions3 }}
+        </p>
+      </div>
+    </div>
+
+  </div>
+      <div class="home-subscribe-button-container">
+      <div class="home-subscribe-button">
+          <button>
+            <a href="/products/marine-liquid-collagen-supplement-drink-for-women">
+            Subscribe
+            </a>
+          </button>
+      </div>
+    </div>
+</section>
+
+<style>
+  .home-overview-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20%;
+  }
+
+  .home-overview-container h1{
+    text-align: center;
+  }
+
+  .home-overview-container p{
+    text-align: center;
+  }
+  .home-subscribe-button {
+    height: 6%;
+    width: 3%;
+  }
+
+  button {
+    border: 2px solid black;
+    background-color: yellow;
+    padding: 20% 70%;
+  }
+
+  .home-promotion-container{
+    background-color: rgba(225, 208, 57, 0.5);
+    padding: 5% 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  .home-promotion-items{
+    display: flex;
+  }
+
+  .home-promotion-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3%;
+  }
+
+/**  */
+  /* .home-subcription-item-number{
+    position: relative;
+
+  }
+
+  .home-subcription-item-number p{
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    
+  } */
+  .home-subcription-container{
+    padding: 5% 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  .home-subcription-items{
+    display: flex;
+  }
+
+  .home-subcription-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3%;
+    border: 2px solid black;
+  }
+
+  .home-subscribe-button-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Product Page",
+    "settings": [
+      {
+        "type": "text",
+        "id": "main_title",
+        "label": "main title",
+        "default": "Marine Liquid Collagen Drink For Women"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "subtitle",
+        "default": "The UK's #1 collagen brand: Our multi award-winning collagen supplement is backed by experts and the best-selling liquid collagen in the UK."
+      },
+      {
+        "type": "text",
+        "id": "description",
+        "label": "description",
+        "default": "Once taken, our liquid marine collagen is absorbed and distributed to the deep layers of the skin (dermis). This helps stimulate and increase your body's own natural collagen production, helping to improve skin rejuvenation, glowing skin, thicker hair and stronger nails."
+      },
+      {
+        "type": "text",
+        "id": "promotion-title",
+        "label": "promotion-title",
+        "default": "The UK's #1 collagen brand..."
+      },
+      {
+        "type": "text",
+        "id": "promotion-subject-title1",
+        "label": "promotion subject title 1",
+        "default": "CLINICALLY PROVEN"
+      },
+      {
+        "type": "text",
+        "id": "promotion-subject-descriptions1",
+        "label": "promotion subject descriptions 1",
+        "default": "visible results on skin, hair and nails"
+      },
+      {
+        "type": "text",
+        "id": "promotion-subject-title2",
+        "label": "promotion subject title 2",
+        "default": "100% SAW IMPROVEMENT"
+      },
+      {
+        "type": "text",
+        "id": "promotion-subject-descriptions2",
+        "label": "promotion subject descriptions 2",
+        "default": "in fine lines and wrinkles*"
+      },
+      {
+        "type": "text",
+        "id": "promotion-subject-title3",
+        "label": "promotion subject title 3",
+        "default": "8000MG OF COLLAGEN"
+      },
+      {
+        "type": "text",
+        "id": "promotion-subject-descriptions3",
+        "label": "promotion subject descriptions 3",
+        "default": "the optimal daily dosage for maximum effects"
+      },
+      {
+        "type": "text",
+        "id": "subscription-title",
+        "label": "subscription title",
+        "default": "Why Subscribe?"
+      }
+    ]
+  }
+  {% endschema %}
+  
